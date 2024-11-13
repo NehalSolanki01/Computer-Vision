@@ -56,4 +56,63 @@ This Python program uses OpenCV and Haar Cascade Classifiers to detect faces and
 
 The program displays a live feed with green rectangles around detected faces and blue rectangles around detected eyes.
 
-_____________________________________________________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________
+
+# 2. Pedestrian Detection with OpenCV
+
+This Python program uses the Histogram of Oriented Gradients (HOG) feature descriptor and a pre-trained Support Vector Machine (SVM) detector in OpenCV to detect pedestrians in a video. It processes each frame of a video and highlights detected pedestrians with bounding boxes.
+
+## Features
+
+- **Pedestrian Detection**: Detects pedestrians in each frame of a video using HOG and SVM.
+- **Real-time Bounding Box Drawing**: Draws bounding boxes around detected pedestrians in each frame.
+- **Video Playback**: Allows for video playback with pedestrian detection.
+- **Exit**: Press the "q" key to exit the program.
+
+## Prerequisites
+
+- **OpenCV**: Ensure OpenCV is installed. You can install it using:
+  ```bash
+  pip install opencv-python
+  ```
+- **Imutils**: This library is used for easier image resizing. Install it using:
+  ```bash
+  pip install imutils
+  ```
+- **Video File**: Ensure you have a video file to test with. Update the file path in the code if necessary.
+
+## How It Works
+
+1. **Initialize HOG Detector**: The program initializes a HOG descriptor configured with a pre-trained SVM for pedestrian detection.
+2. **Video Capture**: The program opens a video file for processing.
+3. **Frame-by-Frame Detection**:
+   - Each frame is resized for efficient processing.
+   - Pedestrians are detected using `hog.detectMultiScale`, which returns bounding box coordinates for each detection.
+4. **Bounding Boxes**: Bounding boxes are drawn around detected pedestrians in each frame.
+5. **Display and Exit**: The program displays each processed frame in a window. Press "q" to stop the video and close the program.
+
+## Code Overview
+
+- **Initialize HOG Detector**: The HOG descriptor is initialized and set with a pre-trained SVM for pedestrian detection.
+- **Video Capture**: A video file is opened, and frames are read in a loop.
+- **Detection**: `detectMultiScale` is used to detect pedestrians in each frame.
+- **Drawing Bounding Boxes**: For each detected pedestrian, a rectangle is drawn.
+- **Exit Condition**: The loop runs until the "q" key is pressed or the video ends.
+
+## Usage
+
+1. **Save the Code**: Save the code in a Python file, e.g., `pedestrian_detection.py`.
+2. **Update Video Path**: Ensure the video path in the code matches the location of your video file.
+3. **Run the Program**:
+   ```bash
+   python pedestrian_detection.py
+   ```
+4. **View the Video**: The program will open a window displaying the video with bounding boxes around detected pedestrians.
+5. **Exit**: Press the "q" key to close the window and end the program.
+
+## Example Output
+
+The program displays the video with red bounding boxes around detected pedestrians.
+
+This pedestrian detection system can be adapted for different video sources and detection thresholds for optimized performance.
+
