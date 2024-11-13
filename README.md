@@ -116,3 +116,70 @@ The program displays the video with red bounding boxes around detected pedestria
 
 This pedestrian detection system can be adapted for different video sources and detection thresholds for optimized performance.
 
+___________________________________________________________________________________________________________________________________________________________________
+
+# 3. Image-to-Video Conversion
+
+This Python program converts a series of images into a video file using OpenCV. Given a list of image filenames, the program reads each image, resizes them to a consistent dimension, and writes them to a video file.
+
+## Features
+
+- **Image-to-Video Conversion**: Combines multiple images into a video.
+- **Customizable Frame Rate and Codec**: Allows setting frame rate (currently set to 1 frame per second) and video codec (default: XVID).
+- **Image Resizing**: Automatically resizes images to ensure consistent dimensions for smooth video playback.
+
+## Prerequisites
+
+- **OpenCV**: Make sure you have OpenCV installed. Install via pip if needed:
+  ```bash
+  pip install opencv-python
+  ```
+
+- **Image Files**: Place your image files in the same directory as this script, or provide the full paths to each image file.
+
+## How It Works
+
+1. **Define Image List**: The program specifies a list of images to include in the video.
+
+2. **Read Image Dimensions**: The program reads the first image in the list to set the video frame dimensions.
+
+3. **VideoWriter Setup**: A `VideoWriter` object is created with the specified codec (`XVID`) and frame rate.
+
+4. **Image Processing**:
+   - Each image in the list is read and resized to match the dimensions of the first image.
+   - Each resized image is then written to the video file.
+
+5. **Save and Release**: After writing all images, the program releases the `VideoWriter` and saves the video as `output_video.avi`.
+
+## Usage
+
+1. **Update Image List**: In the code, update the `image_files` list with your own image filenames:
+   ```python
+   image_files = ['image1.jpg', 'image2.jpg', 'image3.jpg', ...]
+   ```
+
+2. **Run the Program**: Execute the script:
+   ```bash
+   python image_to_video.py
+   ```
+
+3. **Output**: The video file, `output_video.avi`, will be saved in the same directory as the script.
+
+4. **Playback**: You can use a media player like VLC to play the generated video.
+
+## Example Output
+
+The program will print:
+```
+Video created successfully!
+```
+
+## Notes
+
+- **Supported Codecs**: The default codec is `XVID`. You can change it to other supported codecs (e.g., `mp4v` for `.mp4` files).
+- **Frame Rate**: Currently set to 1 frame per second. Adjust this by changing the frame rate argument in `VideoWriter`.
+
+## License
+
+This project is open for personal and educational use.
+
